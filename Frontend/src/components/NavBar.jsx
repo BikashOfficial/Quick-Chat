@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import assets from '../assets/assets'
 import { AuthContext } from '../../context/AuthContext'
 
-const NavBar = () => {
+const NavBar = ({ input, setInput }) => {
 
-    const {logout} = useContext(AuthContext)
+    const { logout } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
-    const [showMenu,setShowMenu] = useState(false)
+    const [showMenu, setShowMenu] = useState(false)
 
     return (
         <div className={`w-full bg-violet-700 shadow-lg py-3 px-6 rounded-bl-2xl rounded-br-2xl border-3 border-transparent z-10`}>
@@ -29,7 +29,13 @@ const NavBar = () => {
 
             <div className='bg-[#282142] rounded-full flex items-center gap-2 px-4 py-3 mt-5'>
                 <img src={assets.search_icon} alt="" className='w-4 mr-1' />
-                <input type="text" className='bg-transparent border-none outline-none text-white text-md placeholder-[#c8c8c8] flex-1' placeholder='Search User...' />
+                <input
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    type="text"
+                    className='bg-transparent border-none outline-none text-white text-md placeholder-[#c8c8c8] flex-1'
+                    placeholder='Search User...'
+                />
             </div>
         </div>
     )

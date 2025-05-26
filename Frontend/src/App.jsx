@@ -5,6 +5,7 @@ import Profile from './pages/Profile';
 import { Toaster } from 'react-hot-toast'
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import UserProtectedWrapper from './components/UserProtectedWrapper';
 
 function App() {
 
@@ -18,6 +19,16 @@ function App() {
         <Route path='/login' element={!authUser ? <Login /> : <Navigate to='/' />} />
         <Route path='/profile' element={authUser ? <Profile /> : <Navigate to='/login' />} />
       </Routes>
+      {/* <Routes>
+        <Route path='/' element={<UserProtectedWrapper>
+          <Home />
+        </UserProtectedWrapper>} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/profile' element={
+          <UserProtectedWrapper>
+            <Profile />
+          </UserProtectedWrapper>} />
+      </Routes> */}
     </div>
   );
 }

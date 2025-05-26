@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
     //check if user is authenticated to set user data and connect to socket
 
-    console.log(localStorage.getItem(['token']))
+    // console.log(localStorage.getItem(['token']))
 
     const checkAuth = async () => {
         try {
